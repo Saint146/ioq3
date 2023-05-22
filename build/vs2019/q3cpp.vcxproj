@@ -173,6 +173,7 @@
     <ClCompile Include="..\..\code\tools\lcc\cpp\unix.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(SolutionDir)SolutionDefines.targets" Condition="exists('$(SolutionDir)SolutionDefines.targets')" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>
