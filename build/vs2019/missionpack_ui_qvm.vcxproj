@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F6EB24E4-E2CF-E539-4B30-E08C3733D0BB}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>missionpack_ui_qvm</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin_x86\</OutDir>
+    <IntDir>obj\x86\Release\missionpack_ui_qvm\</IntDir>
+    <TargetName>missionpack_ui_qvm</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>bin_x64\</OutDir>
+    <IntDir>obj\x64\Release\missionpack_ui_qvm\</IntDir>
+    <TargetName>missionpack_ui_qvm</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin_x86_debug\</OutDir>
+    <IntDir>obj\x86\Debug\missionpack_ui_qvm\</IntDir>
+    <TargetName>missionpack_ui_qvm</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>bin_x64_debug\</OutDir>
+    <IntDir>obj\x64\Debug\missionpack_ui_qvm\</IntDir>
+    <TargetName>missionpack_ui_qvm</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>cd $(IntDir)
+"$(TargetDir)/q3asm.exe" -o "$(TargetDir)/missionpack/vm/ui" ui_main.asm bg_lib.asm bg_misc.asm q_math.asm q_shared.asm ui_atoms.asm ui_gameinfo.asm ui_players.asm ui_shared.asm D:/repos/ioq3/code/ui/ui_syscalls.asm</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;NDEBUG;_WIN64;__WIN64__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>cd $(IntDir)
+"$(TargetDir)/q3asm.exe" -o "$(TargetDir)/missionpack/vm/ui" ui_main.asm bg_lib.asm bg_misc.asm q_math.asm q_shared.asm ui_atoms.asm ui_gameinfo.asm ui_players.asm ui_shared.asm D:/repos/ioq3/code/ui/ui_syscalls.asm</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>cd $(IntDir)
+"$(TargetDir)/q3asm.exe" -o "$(TargetDir)/missionpack/vm/ui" ui_main.asm bg_lib.asm bg_misc.asm q_math.asm q_shared.asm ui_atoms.asm ui_gameinfo.asm ui_players.asm ui_shared.asm D:/repos/ioq3/code/ui/ui_syscalls.asm</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_DEBUG;_WIN64;__WIN64__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>cd $(IntDir)
+"$(TargetDir)/q3asm.exe" -o "$(TargetDir)/missionpack/vm/ui" ui_main.asm bg_lib.asm bg_misc.asm q_math.asm q_shared.asm ui_atoms.asm ui_gameinfo.asm ui_players.asm ui_shared.asm D:/repos/ioq3/code/ui/ui_syscalls.asm</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\code\game\bg_lib.h" />
+    <ClInclude Include="..\..\code\game\bg_public.h" />
+    <ClInclude Include="..\..\code\qcommon\q_shared.h" />
+    <ClInclude Include="..\..\code\ui\ui_local.h" />
+    <ClInclude Include="..\..\code\ui\ui_public.h" />
+    <ClInclude Include="..\..\code\ui\ui_shared.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\code\game\bg_lib.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_ui_qvm/bg_lib.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_ui_qvm/bg_lib.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_ui_qvm/bg_lib.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_ui_qvm/bg_lib.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\bg_misc.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_ui_qvm/bg_misc.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_ui_qvm/bg_misc.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_ui_qvm/bg_misc.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_ui_qvm/bg_misc.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\qcommon\q_math.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_ui_qvm/q_math.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_ui_qvm/q_math.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_ui_qvm/q_math.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_ui_qvm/q_math.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\qcommon\q_shared.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_ui_qvm/q_shared.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_ui_qvm/q_shared.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_ui_qvm/q_shared.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_ui_qvm/q_shared.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\ui\ui_atoms.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_ui_qvm/ui_atoms.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_ui_qvm/ui_atoms.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_ui_qvm/ui_atoms.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_ui_qvm/ui_atoms.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\ui\ui_gameinfo.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_ui_qvm/ui_gameinfo.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_ui_qvm/ui_gameinfo.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_ui_qvm/ui_gameinfo.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_ui_qvm/ui_gameinfo.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\ui\ui_main.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_ui_qvm/ui_main.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_ui_qvm/ui_main.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_ui_qvm/ui_main.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_ui_qvm/ui_main.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\ui\ui_players.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_ui_qvm/ui_players.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_ui_qvm/ui_players.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_ui_qvm/ui_players.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_ui_qvm/ui_players.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\ui\ui_shared.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_ui_qvm/ui_shared.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_ui_qvm/ui_shared.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_ui_qvm/ui_shared.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_ui_qvm/ui_shared.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="lcc.vcxproj">
+      <Project>{778B880B-E394-887C-6C10-9F7CD818947C}</Project>
+    </ProjectReference>
+    <ProjectReference Include="q3asm.vcxproj">
+      <Project>{4A741910-B688-41C1-7F0A-E520EBDD3DF2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="q3cpp.vcxproj">
+      <Project>{6C7C1910-D890-41C1-A112-E5200DE63DF2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="q3rcc.vcxproj">
+      <Project>{81BA1910-EDCE-41C1-B650-E52022243EF2}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

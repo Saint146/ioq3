@@ -1,0 +1,708 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3485D901-A045-5538-6980-9EB5D5FF9914}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>baseq3_ui_qvm</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin_x86\</OutDir>
+    <IntDir>obj\x86\Release\baseq3_ui_qvm\</IntDir>
+    <TargetName>baseq3_ui_qvm</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>bin_x64\</OutDir>
+    <IntDir>obj\x64\Release\baseq3_ui_qvm\</IntDir>
+    <TargetName>baseq3_ui_qvm</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin_x86_debug\</OutDir>
+    <IntDir>obj\x86\Debug\baseq3_ui_qvm\</IntDir>
+    <TargetName>baseq3_ui_qvm</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>bin_x64_debug\</OutDir>
+    <IntDir>obj\x64\Debug\baseq3_ui_qvm\</IntDir>
+    <TargetName>baseq3_ui_qvm</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>cd $(IntDir)
+"$(TargetDir)/q3asm.exe" -o "$(TargetDir)/baseq3/vm/ui" ui_main.asm bg_lib.asm bg_misc.asm ui_addbots.asm ui_atoms.asm ui_cdkey.asm ui_cinematics.asm ui_confirm.asm ui_connect.asm ui_controls2.asm ui_credits.asm ui_demo2.asm ui_display.asm ui_gameinfo.asm ui_ingame.asm ui_loadconfig.asm ui_menu.asm ui_mfield.asm ui_mods.asm ui_network.asm ui_options.asm ui_playermodel.asm ui_players.asm ui_playersettings.asm ui_preferences.asm ui_qmenu.asm ui_removebots.asm ui_saveconfig.asm ui_serverinfo.asm ui_servers2.asm ui_setup.asm ui_sound.asm ui_sparena.asm ui_specifyserver.asm ui_splevel.asm ui_sppostgame.asm ui_spskill.asm ui_startserver.asm ui_team.asm ui_teamorders.asm ui_video.asm q_math.asm q_shared.asm D:/repos/ioq3/code/ui/ui_syscalls.asm</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;NDEBUG;_WIN64;__WIN64__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>cd $(IntDir)
+"$(TargetDir)/q3asm.exe" -o "$(TargetDir)/baseq3/vm/ui" ui_main.asm bg_lib.asm bg_misc.asm ui_addbots.asm ui_atoms.asm ui_cdkey.asm ui_cinematics.asm ui_confirm.asm ui_connect.asm ui_controls2.asm ui_credits.asm ui_demo2.asm ui_display.asm ui_gameinfo.asm ui_ingame.asm ui_loadconfig.asm ui_menu.asm ui_mfield.asm ui_mods.asm ui_network.asm ui_options.asm ui_playermodel.asm ui_players.asm ui_playersettings.asm ui_preferences.asm ui_qmenu.asm ui_removebots.asm ui_saveconfig.asm ui_serverinfo.asm ui_servers2.asm ui_setup.asm ui_sound.asm ui_sparena.asm ui_specifyserver.asm ui_splevel.asm ui_sppostgame.asm ui_spskill.asm ui_startserver.asm ui_team.asm ui_teamorders.asm ui_video.asm q_math.asm q_shared.asm D:/repos/ioq3/code/ui/ui_syscalls.asm</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>cd $(IntDir)
+"$(TargetDir)/q3asm.exe" -o "$(TargetDir)/baseq3/vm/ui" ui_main.asm bg_lib.asm bg_misc.asm ui_addbots.asm ui_atoms.asm ui_cdkey.asm ui_cinematics.asm ui_confirm.asm ui_connect.asm ui_controls2.asm ui_credits.asm ui_demo2.asm ui_display.asm ui_gameinfo.asm ui_ingame.asm ui_loadconfig.asm ui_menu.asm ui_mfield.asm ui_mods.asm ui_network.asm ui_options.asm ui_playermodel.asm ui_players.asm ui_playersettings.asm ui_preferences.asm ui_qmenu.asm ui_removebots.asm ui_saveconfig.asm ui_serverinfo.asm ui_servers2.asm ui_setup.asm ui_sound.asm ui_sparena.asm ui_specifyserver.asm ui_splevel.asm ui_sppostgame.asm ui_spskill.asm ui_startserver.asm ui_team.asm ui_teamorders.asm ui_video.asm q_math.asm q_shared.asm D:/repos/ioq3/code/ui/ui_syscalls.asm</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_DEBUG;_WIN64;__WIN64__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>cd $(IntDir)
+"$(TargetDir)/q3asm.exe" -o "$(TargetDir)/baseq3/vm/ui" ui_main.asm bg_lib.asm bg_misc.asm ui_addbots.asm ui_atoms.asm ui_cdkey.asm ui_cinematics.asm ui_confirm.asm ui_connect.asm ui_controls2.asm ui_credits.asm ui_demo2.asm ui_display.asm ui_gameinfo.asm ui_ingame.asm ui_loadconfig.asm ui_menu.asm ui_mfield.asm ui_mods.asm ui_network.asm ui_options.asm ui_playermodel.asm ui_players.asm ui_playersettings.asm ui_preferences.asm ui_qmenu.asm ui_removebots.asm ui_saveconfig.asm ui_serverinfo.asm ui_servers2.asm ui_setup.asm ui_sound.asm ui_sparena.asm ui_specifyserver.asm ui_splevel.asm ui_sppostgame.asm ui_spskill.asm ui_startserver.asm ui_team.asm ui_teamorders.asm ui_video.asm q_math.asm q_shared.asm D:/repos/ioq3/code/ui/ui_syscalls.asm</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\code\game\bg_lib.h" />
+    <ClInclude Include="..\..\code\q3_ui\ui_local.h" />
+    <ClInclude Include="..\..\code\qcommon\q_shared.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\code\game\bg_lib.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/bg_lib.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/bg_lib.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/bg_lib.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/bg_lib.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\bg_misc.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/bg_misc.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/bg_misc.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/bg_misc.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/bg_misc.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_addbots.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_addbots.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_addbots.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_addbots.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_addbots.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_atoms.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_atoms.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_atoms.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_atoms.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_atoms.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_cdkey.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_cdkey.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_cdkey.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_cdkey.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_cdkey.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_cinematics.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_cinematics.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_cinematics.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_cinematics.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_cinematics.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_confirm.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_confirm.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_confirm.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_confirm.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_confirm.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_connect.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_connect.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_connect.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_connect.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_connect.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_controls2.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_controls2.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_controls2.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_controls2.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_controls2.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_credits.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_credits.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_credits.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_credits.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_credits.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_demo2.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_demo2.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_demo2.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_demo2.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_demo2.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_display.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_display.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_display.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_display.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_display.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_gameinfo.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_gameinfo.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_gameinfo.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_gameinfo.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_gameinfo.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_ingame.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_ingame.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_ingame.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_ingame.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_ingame.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_loadconfig.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_loadconfig.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_loadconfig.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_loadconfig.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_loadconfig.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_main.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_main.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_main.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_main.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_main.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_menu.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_menu.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_menu.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_menu.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_menu.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_mfield.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_mfield.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_mfield.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_mfield.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_mfield.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_mods.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_mods.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_mods.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_mods.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_mods.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_network.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_network.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_network.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_network.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_network.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_options.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_options.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_options.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_options.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_options.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_playermodel.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_playermodel.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_playermodel.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_playermodel.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_playermodel.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_players.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_players.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_players.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_players.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_players.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_playersettings.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_playersettings.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_playersettings.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_playersettings.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_playersettings.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_preferences.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_preferences.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_preferences.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_preferences.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_preferences.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_qmenu.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_qmenu.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_qmenu.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_qmenu.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_qmenu.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_removebots.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_removebots.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_removebots.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_removebots.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_removebots.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_saveconfig.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_saveconfig.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_saveconfig.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_saveconfig.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_saveconfig.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_serverinfo.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_serverinfo.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_serverinfo.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_serverinfo.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_serverinfo.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_servers2.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_servers2.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_servers2.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_servers2.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_servers2.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_setup.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_setup.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_setup.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_setup.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_setup.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_sound.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_sound.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_sound.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_sound.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_sound.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_sparena.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_sparena.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_sparena.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_sparena.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_sparena.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_specifyserver.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_specifyserver.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_specifyserver.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_specifyserver.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_specifyserver.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_splevel.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_splevel.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_splevel.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_splevel.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_splevel.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_sppostgame.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_sppostgame.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_sppostgame.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_sppostgame.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_sppostgame.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_spskill.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_spskill.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_spskill.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_spskill.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_spskill.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_startserver.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_startserver.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_startserver.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_startserver.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_startserver.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_team.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_team.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_team.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_team.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_team.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_teamorders.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_teamorders.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_teamorders.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_teamorders.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_teamorders.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\q3_ui\ui_video.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/ui_video.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/ui_video.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/ui_video.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/ui_video.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\qcommon\q_math.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/q_math.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/q_math.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/q_math.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/q_math.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\qcommon\q_shared.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DUI -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DUI -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DUI -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DUI -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/baseq3_ui_qvm/q_shared.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/baseq3_ui_qvm/q_shared.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/baseq3_ui_qvm/q_shared.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/baseq3_ui_qvm/q_shared.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="lcc.vcxproj">
+      <Project>{778B880B-E394-887C-6C10-9F7CD818947C}</Project>
+    </ProjectReference>
+    <ProjectReference Include="q3asm.vcxproj">
+      <Project>{4A741910-B688-41C1-7F0A-E520EBDD3DF2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="q3cpp.vcxproj">
+      <Project>{6C7C1910-D890-41C1-A112-E5200DE63DF2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="q3rcc.vcxproj">
+      <Project>{81BA1910-EDCE-41C1-B650-E52022243EF2}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

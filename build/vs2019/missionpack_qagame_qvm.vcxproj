@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{04DC09CD-F0D5-321F-D942-C92FC5DB988B}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>missionpack_qagame_qvm</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin_x86\</OutDir>
+    <IntDir>obj\x86\Release\missionpack_qagame_qvm\</IntDir>
+    <TargetName>missionpack_qagame_qvm</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>bin_x64\</OutDir>
+    <IntDir>obj\x64\Release\missionpack_qagame_qvm\</IntDir>
+    <TargetName>missionpack_qagame_qvm</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin_x86_debug\</OutDir>
+    <IntDir>obj\x86\Debug\missionpack_qagame_qvm\</IntDir>
+    <TargetName>missionpack_qagame_qvm</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>bin_x64_debug\</OutDir>
+    <IntDir>obj\x64\Debug\missionpack_qagame_qvm\</IntDir>
+    <TargetName>missionpack_qagame_qvm</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>cd $(IntDir)
+"$(TargetDir)/q3asm.exe" -o "$(TargetDir)/missionpack/vm/qagame" g_main.asm ai_chat.asm ai_cmd.asm ai_dmnet.asm ai_dmq3.asm ai_main.asm ai_team.asm ai_vcmd.asm bg_lib.asm bg_misc.asm bg_pmove.asm bg_slidemove.asm g_active.asm g_arenas.asm g_bot.asm g_client.asm g_cmds.asm g_combat.asm g_items.asm g_mem.asm g_misc.asm g_missile.asm g_mover.asm g_session.asm g_spawn.asm g_svcmds.asm g_target.asm g_team.asm g_trigger.asm g_utils.asm g_weapon.asm q_math.asm q_shared.asm D:/repos/ioq3/code/game/g_syscalls.asm</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;NDEBUG;_WIN64;__WIN64__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>cd $(IntDir)
+"$(TargetDir)/q3asm.exe" -o "$(TargetDir)/missionpack/vm/qagame" g_main.asm ai_chat.asm ai_cmd.asm ai_dmnet.asm ai_dmq3.asm ai_main.asm ai_team.asm ai_vcmd.asm bg_lib.asm bg_misc.asm bg_pmove.asm bg_slidemove.asm g_active.asm g_arenas.asm g_bot.asm g_client.asm g_cmds.asm g_combat.asm g_items.asm g_mem.asm g_misc.asm g_missile.asm g_mover.asm g_session.asm g_spawn.asm g_svcmds.asm g_target.asm g_team.asm g_trigger.asm g_utils.asm g_weapon.asm q_math.asm q_shared.asm D:/repos/ioq3/code/game/g_syscalls.asm</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>cd $(IntDir)
+"$(TargetDir)/q3asm.exe" -o "$(TargetDir)/missionpack/vm/qagame" g_main.asm ai_chat.asm ai_cmd.asm ai_dmnet.asm ai_dmq3.asm ai_main.asm ai_team.asm ai_vcmd.asm bg_lib.asm bg_misc.asm bg_pmove.asm bg_slidemove.asm g_active.asm g_arenas.asm g_bot.asm g_client.asm g_cmds.asm g_combat.asm g_items.asm g_mem.asm g_misc.asm g_missile.asm g_mover.asm g_session.asm g_spawn.asm g_svcmds.asm g_target.asm g_team.asm g_trigger.asm g_utils.asm g_weapon.asm q_math.asm q_shared.asm D:/repos/ioq3/code/game/g_syscalls.asm</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_DEBUG;_WIN64;__WIN64__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>cd $(IntDir)
+"$(TargetDir)/q3asm.exe" -o "$(TargetDir)/missionpack/vm/qagame" g_main.asm ai_chat.asm ai_cmd.asm ai_dmnet.asm ai_dmq3.asm ai_main.asm ai_team.asm ai_vcmd.asm bg_lib.asm bg_misc.asm bg_pmove.asm bg_slidemove.asm g_active.asm g_arenas.asm g_bot.asm g_client.asm g_cmds.asm g_combat.asm g_items.asm g_mem.asm g_misc.asm g_missile.asm g_mover.asm g_session.asm g_spawn.asm g_svcmds.asm g_target.asm g_team.asm g_trigger.asm g_utils.asm g_weapon.asm q_math.asm q_shared.asm D:/repos/ioq3/code/game/g_syscalls.asm</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\code\game\ai_chat.h" />
+    <ClInclude Include="..\..\code\game\ai_cmd.h" />
+    <ClInclude Include="..\..\code\game\ai_dmnet.h" />
+    <ClInclude Include="..\..\code\game\ai_dmq3.h" />
+    <ClInclude Include="..\..\code\game\ai_main.h" />
+    <ClInclude Include="..\..\code\game\ai_team.h" />
+    <ClInclude Include="..\..\code\game\ai_vcmd.h" />
+    <ClInclude Include="..\..\code\game\bg_lib.h" />
+    <ClInclude Include="..\..\code\game\bg_local.h" />
+    <ClInclude Include="..\..\code\game\bg_public.h" />
+    <ClInclude Include="..\..\code\game\chars.h" />
+    <ClInclude Include="..\..\code\game\g_local.h" />
+    <ClInclude Include="..\..\code\game\g_public.h" />
+    <ClInclude Include="..\..\code\game\g_team.h" />
+    <ClInclude Include="..\..\code\game\inv.h" />
+    <ClInclude Include="..\..\code\game\match.h" />
+    <ClInclude Include="..\..\code\game\syn.h" />
+    <ClInclude Include="..\..\code\qcommon\q_shared.h" />
+    <ClInclude Include="..\..\code\qcommon\surfaceflags.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\code\game\ai_chat.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/ai_chat.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/ai_chat.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/ai_chat.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/ai_chat.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\ai_cmd.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/ai_cmd.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/ai_cmd.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/ai_cmd.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/ai_cmd.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\ai_dmnet.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/ai_dmnet.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/ai_dmnet.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/ai_dmnet.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/ai_dmnet.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\ai_dmq3.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/ai_dmq3.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/ai_dmq3.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/ai_dmq3.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/ai_dmq3.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\ai_main.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/ai_main.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/ai_main.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/ai_main.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/ai_main.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\ai_team.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/ai_team.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/ai_team.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/ai_team.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/ai_team.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\ai_vcmd.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/ai_vcmd.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/ai_vcmd.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/ai_vcmd.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/ai_vcmd.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\bg_lib.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/bg_lib.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/bg_lib.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/bg_lib.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/bg_lib.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\bg_misc.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/bg_misc.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/bg_misc.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/bg_misc.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/bg_misc.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\bg_pmove.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/bg_pmove.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/bg_pmove.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/bg_pmove.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/bg_pmove.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\bg_slidemove.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/bg_slidemove.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/bg_slidemove.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/bg_slidemove.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/bg_slidemove.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_active.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_active.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_active.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_active.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_active.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_arenas.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_arenas.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_arenas.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_arenas.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_arenas.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_bot.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_bot.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_bot.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_bot.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_bot.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_client.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_client.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_client.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_client.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_client.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_cmds.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_cmds.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_cmds.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_cmds.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_cmds.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_combat.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_combat.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_combat.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_combat.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_combat.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_items.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_items.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_items.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_items.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_items.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_main.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_main.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_main.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_main.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_main.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_mem.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_mem.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_mem.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_mem.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_mem.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_misc.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_misc.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_misc.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_misc.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_misc.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_missile.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_missile.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_missile.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_missile.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_missile.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_mover.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_mover.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_mover.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_mover.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_mover.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_session.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_session.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_session.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_session.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_session.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_spawn.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_spawn.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_spawn.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_spawn.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_spawn.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_svcmds.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_svcmds.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_svcmds.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_svcmds.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_svcmds.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_target.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_target.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_target.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_target.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_target.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_team.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_team.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_team.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_team.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_team.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_trigger.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_trigger.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_trigger.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_trigger.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_trigger.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_utils.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_utils.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_utils.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_utils.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_utils.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\game\g_weapon.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/g_weapon.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/g_weapon.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/g_weapon.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/g_weapon.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\qcommon\q_math.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/q_math.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/q_math.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/q_math.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/q_math.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+    <CustomBuild Include="..\..\code\qcommon\q_shared.c">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"bin_x86\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"bin_x64\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"bin_x86_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x86_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"bin_x64_debug\lcc.exe" -DQAGAME -DMISSIONPACK -Wo-lccdir="bin_x64_debug" -o "$(IntDir)\%(Filename).asm" "%(Identity)"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">obj/x86/Release/missionpack_qagame_qvm/q_shared.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">obj/x64/Release/missionpack_qagame_qvm/q_shared.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">obj/x86/Debug/missionpack_qagame_qvm/q_shared.asm</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">obj/x64/Debug/missionpack_qagame_qvm/q_shared.asm</Outputs>
+      <Message>lcc %(Filename)%(Extension)</Message>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="lcc.vcxproj">
+      <Project>{778B880B-E394-887C-6C10-9F7CD818947C}</Project>
+    </ProjectReference>
+    <ProjectReference Include="q3asm.vcxproj">
+      <Project>{4A741910-B688-41C1-7F0A-E520EBDD3DF2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="q3cpp.vcxproj">
+      <Project>{6C7C1910-D890-41C1-A112-E5200DE63DF2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="q3rcc.vcxproj">
+      <Project>{81BA1910-EDCE-41C1-B650-E52022243EF2}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

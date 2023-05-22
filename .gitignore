@@ -1,4 +1,3 @@
-build
 Makefile.local
 *.swp
 *tags
@@ -40,3 +39,4 @@ profile
 *.sdf
 *.opensdf
 *.suo
+/.vs

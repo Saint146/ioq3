@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="code">
+      <UniqueIdentifier>{803E957C-6C75-960D-1562-7C100178120F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="code\tools">
+      <UniqueIdentifier>{20733E66-0C2B-80B3-7532-590F61091BA4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="code\tools\lcc">
+      <UniqueIdentifier>{81A19E78-6D6F-927E-5603-03A542706EE3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="code\tools\lcc\etc">
+      <UniqueIdentifier>{CCFC4002-B8E0-0158-2141-FCAA0D44ECD9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lcc">
+      <UniqueIdentifier>{778B880B-E394-887C-6C10-9F7CD818947C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\code\tools\lcc\etc\bytecode.c">
+      <Filter>code\tools\lcc\etc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lcc\lcc.c">
+      <Filter>lcc</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

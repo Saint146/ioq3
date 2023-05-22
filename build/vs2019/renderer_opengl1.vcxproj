@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1125D153-FD1D-F0A5-2650-D52A12A8CFB1}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>renderer_opengl1</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>bin_x86\</OutDir>
+    <IntDir>obj\x86\Release\renderer_opengl1\</IntDir>
+    <TargetName>renderer_opengl1_x86</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>bin_x64\</OutDir>
+    <IntDir>obj\x64\Release\renderer_opengl1\</IntDir>
+    <TargetName>renderer_opengl1_x86_64</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>bin_x86_debug\</OutDir>
+    <IntDir>obj\x86\Debug\renderer_opengl1\</IntDir>
+    <TargetName>renderer_opengl1_x86</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>bin_x64_debug\</OutDir>
+    <IntDir>obj\x64\Debug\renderer_opengl1\</IntDir>
+    <TargetName>renderer_opengl1_x86_64</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;NDEBUG;_WIN32;WIN32;_WINDOWS;USE_INTERNAL_JPEG;USE_RENDERER_DLOPEN;USE_LOCAL_HEADERS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\code\AL;..\..\code\jpeg-8c;..\..\code\curl-7.54.0;..\..\code\SDL2\include;..\..\code\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>bin_x86\renderer_opengl1_x86.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;NDEBUG;_WIN64;__WIN64__;_WIN32;WIN32;_WINDOWS;USE_INTERNAL_JPEG;USE_RENDERER_DLOPEN;USE_LOCAL_HEADERS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\code\AL;..\..\code\jpeg-8c;..\..\code\curl-7.54.0;..\..\code\SDL2\include;..\..\code\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <AdditionalOptions>/wd"4267" %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>bin_x64\renderer_opengl1_x86_64.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_DEBUG;_WIN32;WIN32;_WINDOWS;USE_INTERNAL_JPEG;USE_RENDERER_DLOPEN;USE_LOCAL_HEADERS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\code\AL;..\..\code\jpeg-8c;..\..\code\curl-7.54.0;..\..\code\SDL2\include;..\..\code\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>bin_x86_debug\renderer_opengl1_x86.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_DEBUG;_WIN64;__WIN64__;_WIN32;WIN32;_WINDOWS;USE_INTERNAL_JPEG;USE_RENDERER_DLOPEN;USE_LOCAL_HEADERS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\code\AL;..\..\code\jpeg-8c;..\..\code\curl-7.54.0;..\..\code\SDL2\include;..\..\code\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalOptions>/wd"4267" %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>bin_x64_debug\renderer_opengl1_x86_64.lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\code\jpeg-8c\jconfig.h" />
+    <ClInclude Include="..\..\code\jpeg-8c\jdct.h" />
+    <ClInclude Include="..\..\code\jpeg-8c\jerror.h" />
+    <ClInclude Include="..\..\code\jpeg-8c\jinclude.h" />
+    <ClInclude Include="..\..\code\jpeg-8c\jmemsys.h" />
+    <ClInclude Include="..\..\code\jpeg-8c\jmorecfg.h" />
+    <ClInclude Include="..\..\code\jpeg-8c\jpegint.h" />
+    <ClInclude Include="..\..\code\jpeg-8c\jpeglib.h" />
+    <ClInclude Include="..\..\code\jpeg-8c\jversion.h" />
+    <ClInclude Include="..\..\code\qcommon\puff.h" />
+    <ClInclude Include="..\..\code\qcommon\q_shared.h" />
+    <ClInclude Include="..\..\code\qcommon\qcommon.h" />
+    <ClInclude Include="..\..\code\qcommon\qfiles.h" />
+    <ClInclude Include="..\..\code\qcommon\surfaceflags.h" />
+    <ClInclude Include="..\..\code\renderercommon\iqm.h" />
+    <ClInclude Include="..\..\code\renderercommon\qgl.h" />
+    <ClInclude Include="..\..\code\renderercommon\tr_common.h" />
+    <ClInclude Include="..\..\code\renderercommon\tr_public.h" />
+    <ClInclude Include="..\..\code\renderercommon\tr_types.h" />
+    <ClInclude Include="..\..\code\renderergl1\tr_local.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\code\jpeg-8c\jaricom.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jcapimin.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jcapistd.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jcarith.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jccoefct.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jccolor.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jcdctmgr.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jchuff.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jcinit.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jcmainct.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jcmarker.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jcmaster.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jcomapi.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jcparam.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jcprepct.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jcsample.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jctrans.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jdapimin.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jdapistd.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jdarith.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jdatadst.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jdatasrc.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jdcoefct.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jdcolor.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jddctmgr.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jdhuff.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jdinput.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jdmainct.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jdmarker.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jdmaster.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jdmerge.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jdpostct.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jdsample.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jdtrans.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jerror.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jfdctflt.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jfdctfst.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jfdctint.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jidctflt.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jidctfst.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jidctint.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jmemmgr.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jmemnobs.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jquant1.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jquant2.c" />
+    <ClCompile Include="..\..\code\jpeg-8c\jutils.c" />
+    <ClCompile Include="..\..\code\qcommon\puff.c" />
+    <ClCompile Include="..\..\code\qcommon\q_math.c" />
+    <ClCompile Include="..\..\code\qcommon\q_shared.c" />
+    <ClCompile Include="..\..\code\renderercommon\tr_font.c" />
+    <ClCompile Include="..\..\code\renderercommon\tr_image_bmp.c" />
+    <ClCompile Include="..\..\code\renderercommon\tr_image_jpg.c" />
+    <ClCompile Include="..\..\code\renderercommon\tr_image_pcx.c" />
+    <ClCompile Include="..\..\code\renderercommon\tr_image_png.c" />
+    <ClCompile Include="..\..\code\renderercommon\tr_image_tga.c" />
+    <ClCompile Include="..\..\code\renderercommon\tr_noise.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_altivec.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_animation.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_backend.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_bsp.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_cmds.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_curve.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_flares.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_image.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_init.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_light.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_main.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_marks.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_mesh.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_model.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_model_iqm.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_scene.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_shade.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_shade_calc.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_shader.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_shadows.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_sky.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_subs.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_surface.c" />
+    <ClCompile Include="..\..\code\renderergl1\tr_world.c" />
+    <ClCompile Include="..\..\code\sdl\sdl_gamma.c" />
+    <ClCompile Include="..\..\code\sdl\sdl_glimp.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="SDL2.vcxproj">
+      <Project>{3ABE8B7C-26F5-8C0D-CFE1-7210BBF7080F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="zlib.vcxproj">
+      <Project>{16CFA17C-0206-A30D-ABF2-881097081F0F}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
