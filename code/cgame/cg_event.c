@@ -1194,9 +1194,16 @@ void CG_EntityEvent( centity_t *cent, vec3_t position ) {
 	case EV_DEATH3:
 		DEBUGNAME("EV_DEATHx");
 
-		if (CG_WaterLevel(cent) == 3) {
+		if(es->eventParm == MOD_FALLING)
+		{
+			trap_S_StartSound(NULL, es->number, CHAN_VOICE, cgs.media.crateredSound);
+		}
+		else if (CG_WaterLevel(cent) == 3)
+		{
 			trap_S_StartSound(NULL, es->number, CHAN_VOICE, CG_CustomSound(es->number, "*drown.wav"));
-		} else {
+		}
+		else
+		{
 			trap_S_StartSound(NULL, es->number, CHAN_VOICE, CG_CustomSound(es->number, va("*death%i.wav", event - EV_DEATH1 + 1)));
 		}
 

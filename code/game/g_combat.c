@@ -721,7 +721,7 @@ void player_die( gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int
 		self->client->ps.torsoAnim = 
 			( ( self->client->ps.torsoAnim & ANIM_TOGGLEBIT ) ^ ANIM_TOGGLEBIT ) | anim;
 
-		G_AddEvent( self, EV_DEATH1 + i, killer );
+		G_AddEvent( self, EV_DEATH1 + i, meansOfDeath );
 
 		// the body can still be gibbed
 		self->die = body_die;

@@ -92,7 +92,8 @@ static void InGame_QuitAction( qboolean result ) {
 		return;
 	}
 	UI_PopMenu();
-	UI_CreditMenu();
+	//UI_CreditMenu();
+	trap_Cmd_ExecuteText(EXEC_APPEND, "quit\n");
 }
 
 
