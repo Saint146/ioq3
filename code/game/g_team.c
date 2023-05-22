@@ -92,7 +92,7 @@ const char *TeamColorString(int team) {
 }
 
 // NULL for everyone
-static __attribute__ ((format (printf, 2, 3))) void QDECL PrintMsg( gentity_t *ent, const char *fmt, ... ) {
+__attribute__ ((format (printf, 2, 3))) void QDECL PrintMsg( gentity_t *ent, const char *fmt, ... ) {
 	char		msg[1024];
 	va_list		argptr;
 	char		*p;
@@ -108,6 +108,21 @@ static __attribute__ ((format (printf, 2, 3))) void QDECL PrintMsg( gentity_t *e
 		*p = '\'';
 
 	trap_SendServerCommand ( ( (ent == NULL) ? -1 : ent-g_entities ), va("print \"%s\"", msg ));
+}
+
+void AnnounceSound(gentity_t* ent, char* soundPath, qboolean global)
+{
+	// announce to all clients
+	gentity_t* announceEntity;
+
+	if (global == qtrue) {
+		announceEntity = G_TempEntity(ent->s.pos.trBase, EV_GLOBAL_SOUND);
+	}
+	else {
+		announceEntity = G_TempEntity(ent->s.pos.trBase, EV_GENERAL_SOUND);
+	}
+	announceEntity->s.eventParm = G_SoundIndex(soundPath);
+	announceEntity->r.svFlags |= SVF_BROADCAST;
 }
 
 /*

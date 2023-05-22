@@ -437,7 +437,8 @@ void player_die( gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int
 	int			contents;
 	int			killer;
 	int			i;
-	char		*killerName, *obit;
+	char		*victimName,  *killerName, *obit;
+	int			killStreak, deathStreak;
 
 	if ( self->client->ps.pm_type == PM_DEAD ) {
 		return;
@@ -464,6 +465,9 @@ void player_die( gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int
 #endif
 	self->client->ps.pm_type = PM_DEAD;
 
+
+	victimName = self->client->pers.netname;
+
 	if ( attacker ) {
 		killer = attacker->s.number;
 		if ( attacker->client ) {
@@ -488,8 +492,7 @@ void player_die( gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int
 	}
 
 	G_LogPrintf("Kill: %i %i %i: %s killed %s by %s\n", 
-		killer, self->s.number, meansOfDeath, killerName, 
-		self->client->pers.netname, obit );
+		killer, self->s.number, meansOfDeath, killerName, victimName, obit);
 
 	// broadcast the death event to everyone
 	ent = G_TempEntity( self->r.currentOrigin, EV_OBITUARY );
@@ -509,6 +512,43 @@ void player_die( gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int
 			AddScore( attacker, self->r.currentOrigin, -1 );
 		} else {
 			AddScore( attacker, self->r.currentOrigin, 1 );
+
+			attacker->client->ps.persistant[PERS_DEATHS_IN_A_ROW] = 0;
+			killStreak = ++(attacker->client->ps.persistant[PERS_KILLS_IN_A_ROW]);
+			if ((killStreak % 2 != 0) && (killStreak >= 3))
+			{
+				switch (killStreak)
+				{
+				case 3:
+					PrintMsg(NULL, "%s: Multi-Kill!\n", killerName);
+					AnnounceSound(attacker, "sound/saint/multikill.wav", qtrue);
+					break;
+				case 5:
+					PrintMsg(NULL, "%s: Ultra-Kill!!\n", killerName);
+					AnnounceSound(attacker, "sound/saint/ultrakill.wav", qtrue);
+					break;
+				case 7:
+					PrintMsg(NULL, "%s is on a KILLING SPREE!!!\n", killerName);
+					AnnounceSound(attacker, "sound/saint/killingspree.wav", qtrue);
+					break;
+				case 9:
+					PrintMsg(NULL, "%s: RAMPAGE!\n", killerName);
+					AnnounceSound(attacker, "sound/saint/rampage.wav", qtrue);
+					break;
+				case 11:
+					PrintMsg(NULL, "%s IS UNSTOPPABLE!!!\n", killerName);
+					AnnounceSound(attacker, "sound/saint/unstoppable.wav", qtrue);
+					break;
+				case 13:
+					PrintMsg(NULL, "%s IS A MONSTER!\n", killerName);
+					AnnounceSound(attacker, "sound/saint/monsterkill.wav", qtrue);
+					break;
+				default:
+					PrintMsg(NULL, "%s IS GODLIKE!!!\n", killerName);
+					AnnounceSound(attacker, "sound/saint/godlike.wav", qtrue);
+					break;
+				}
+			}
 
 			if( meansOfDeath == MOD_GAUNTLET ) {
 				
@@ -540,6 +580,43 @@ void player_die( gentity_t *self, gentity_t *inflictor, gentity_t *attacker, int
 		}
 	} else {
 		AddScore( self, self->r.currentOrigin, -1 );
+	}
+
+	self->client->ps.persistant[PERS_KILLS_IN_A_ROW] = 0;
+	deathStreak = ++(self->client->ps.persistant[PERS_DEATHS_IN_A_ROW]);
+	if ((deathStreak % 2 != 0) && (deathStreak >= 3))
+	{
+		switch (deathStreak)
+		{
+		case 3:
+			PrintMsg(NULL, "%s: Multi-Death...\n", victimName);
+			AnnounceSound(self, "sound/saint/multideath.wav", qtrue);
+			break;
+		case 5:
+			PrintMsg(NULL, "%s: Ultra-Death...\n", victimName);
+			AnnounceSound(self, "sound/saint/ultradeath.wav", qtrue);
+			break;
+		case 7:
+			PrintMsg(NULL, "%s is on a DYING SPREE...\n", victimName);
+			AnnounceSound(self, "sound/saint/dyingspree.wav", qtrue);
+			break;
+		case 9:
+			PrintMsg(NULL, "%s: LAMAGE...\n", victimName);
+			AnnounceSound(self, "sound/saint/lamage.wav", qtrue);
+			break;
+		case 11:
+			PrintMsg(NULL, "%s IS VERY STOPPABLE...\n", victimName);
+			AnnounceSound(self, "sound/saint/verystoppable.wav", qtrue);
+			break;
+		case 13:
+			PrintMsg(NULL, "%s IS A MOX...\n", victimName);
+			AnnounceSound(self, "sound/saint/mox.wav", qtrue);
+			break;
+		default:
+			PrintMsg(NULL, "%s IS LOXLIKE...\n", victimName);
+			AnnounceSound(self, "sound/saint/loxlike.wav", qtrue);
+			break;
+		}
 	}
 
 	// Add team bonuses

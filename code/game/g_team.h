@@ -85,3 +85,6 @@ void TeamplayInfoMessage( gentity_t *ent );
 void CheckTeamStatus(void);
 
 int Pickup_Team( gentity_t *ent, gentity_t *other );
+
+void PrintMsg(gentity_t* ent, const char* fmt, ...);
+void AnnounceSound(gentity_t* ent, char* soundPath, qboolean global);
